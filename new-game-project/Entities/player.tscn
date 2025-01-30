@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://hj1pff0tudje"]
+
+[ext_resource type="Script" path="res://Entities/player.gd" id="1_lkokv"]
+[ext_resource type="Texture2D" uid="uid://dxss0g2h5r33e" path="res://Assets/20250129_204648-removebg-preview.png" id="2_0j77f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pohd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwcjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0j77f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.837728, 0)
+script = ExtResource("1_lkokv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5pohd")
+
+[node name="Camera3D" type="Camera3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71652, 0)
+current = true
+fov = 113.5
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CollisionShape3D/Camera3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.178784, -0.723953)
+sprite_frames = SubResource("SpriteFrames_rwcjt")
